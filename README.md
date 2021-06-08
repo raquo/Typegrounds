@@ -12,4 +12,4 @@ Nothing much, just me trying out Scala 3's type system.
 
 ### Will there be docs?
 
-No, but there's a [blog post about MapK](https://dev.to/raquo/existential-crisis-implementing-mapk-in-scala-3-3a0-temp-slug-667647).
+No, but there's a [blog post about MapK](https://dev.to/raquo/existential-crisis-implementing-mapk-in-scala-3-2fo1).
