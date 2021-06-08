@@ -6,7 +6,7 @@ type Id[A] = A
 
 implicit def wrapId[A](a: A): Id[A] = a
 
-implicit def unwrapId[A](a: Id[A]): A = a
+//implicit def unwrapId[A](a: Id[A]): A = a
 
 
 type Type[F[_]] <: (Any { type T })
@@ -18,6 +18,7 @@ object Type {
 
   type Tuple3[F[_], G[_], H[_]] <: (Any { type T })
 
+  // type Function2[F[_], G[_], Out] <: (Any { type T })
 }
 
 // Scala 2 style implicits, but whatever, conversion to Scala 3 style is straightforward, see PathDependent.scala
@@ -27,6 +28,9 @@ implicit def wrap[F[_], A](value: F[A]): Type[F] =
 
 implicit def wrapT2[F[_], G[_], A](value: (F[A], G[A])): Type.Tuple2[F, G] =
   value.asInstanceOf[Type.Tuple2[F, G]]
+
+//implicit def wrapF2[F[_], G[_], Out](value: (Type[F], Type[G]) => Out): Type.Function2[F, G, Out] =
+//  value.asInstanceOf[Type.Function2[F, G, Out]]
 
 implicit def wrapT2_P1[F[_], A](t: (F[A], A)): Type.Tuple2[F, Id] = wrapT2[F, Id, A](t)
 

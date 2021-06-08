@@ -28,6 +28,10 @@ type KTuple3[T1[_], T2[_], T3[_]] = {
   type T = (T1[A], T2[A], T3[A])
 }
 
+//extension [K[_], A] (key: K[A])
+//  def ~>[V[_]](value: V[A]): KTuple2[K, V]#T = (key, value).asInstanceOf[KTuple2[K, V]#T]
+//  def ~~>[V[_]](value: A): KTuple2[K, Id]#T = (key, value).asInstanceOf[KTuple2[K, Id]#T]
+
 
 /** Used implicitly for MapK(fooKey -> Option[Foo], barKey -> Option[Bar]) syntax.
  *  @TODO[WTF] Needs ArrowAssoc to work implicitly.

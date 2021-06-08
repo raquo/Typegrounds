@@ -47,9 +47,9 @@ class MapK[K[_], V[_]](rawMap: Map[K[Any], V[Any]]) {
 object MapK {
 
   /** #Unsafe: assumes that `rawMap` is a valid source for MapK,
-   * i.e. that every (K[Any], V[Any]) pair in `rawMap` is actually `(K[A], V[A]) forSome { type A }`.
-   * For extra clarity, different pairs in `rawMap` can have different `A` types,
-   * it must only be consistent within the same key-value pair.
+   *   i.e. that every (K[Any], V[Any]) pair in `rawMap` is actually `(K[A], V[A]) forSome { type A }`.
+   *   For extra clarity, different pairs in `rawMap` can have different `A` types,
+   *   it must only be consistent within the same key-value pair.
    */
   def unsafeCoerce[K[_], V[_]](rawMap: Map[K[Any], V[Any]]): MapK[K, V] = {
     new MapK[K, V](rawMap)
